@@ -1,0 +1,55 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars Collection</title>
+</head>
+<body>
+    <header id="main-navigation">
+        <h1><a href="">Saif's Blog</a></h1>
+        <nav>
+        <a href="{% url "add_car" %}">Add Car</a>
+        <a href="{% url "car_list" %}">Car List</a>
+        <a href="{% url "car_detail" %}">Car Detail</a>
+        <a href="{% url "update_car" %}">Update Car</a>
+        <a href="{% url "delet_car" %}">Delete Car</a>
+        <a href="{% url "search_cars" %}">Search Cars</a>
+        </nav>
+    </header>
+
+    <section id="welcome">
+        <header>
+        <img src="{% static "blogs/images/saif.jpg" %}" alt="Saif- The Author of this Blog" />
+          <h2>SAIF'S BLOGS</h2>
+          <p>HI, I am Saif and I love to blog about tech and world!</p>
+        </header>
+      </section>
+      
+      <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+        <ul>
+          {% for post in posts %}
+            {% include "blogs/includes/post.html" %}
+          {% endfor %}
+        </ul>
+      </section>
+      
+      <section id="about">
+        <h2>What I do</h2>
+        <p>
+          I love programming, I Love to help others and I enjoy exploring new
+          technologies in general!
+        </p>
+        <p>
+          My goal is to keep on growing as a developer- and if I could help you do the
+          same, I'd be very happy!
+        </p>
+      </section>
+      
+      {% endblock%}
+      
+
+</body>
+</html>

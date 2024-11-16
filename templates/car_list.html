@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Cars</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+    <h1>Your Cars</h1>
+    <a href="{% url 'add_car' %}">Add New Car</a>
+    <hr>
+    <ul>
+        {% for car in cars %}
+            <li>
+                <a href="{% url 'car_detail' car.id %}">{{ car.title }}</a>
+                <p>{{ car.description|truncatewords:10 }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
